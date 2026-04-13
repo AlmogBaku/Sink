@@ -27,7 +27,7 @@
   },
   "analytics_engine_datasets": [
     {
-      "binding": "LINK_SHORTNER_ANALYTICS",
+      "binding": "ANALYTICS",
       "dataset": "link_shortner"
     }
   ],
