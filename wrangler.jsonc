@@ -27,8 +27,8 @@
   },
   "analytics_engine_datasets": [
     {
-      "binding": "ANALYTICS",
-      "dataset": "sink"
+      "binding": "LINK_SHORTNER_ANALYTICS",
+      "dataset": "link_shortner"
     }
   ],
   "kv_namespaces": [
