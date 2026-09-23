@@ -114,6 +114,18 @@ describe('/api/link/create', { concurrent: false }, () => {
     expect(data.shortLink).toContain(payload.slug)
   })
 
+  it('creates a link whose URL carries a long fragment', async () => {
+    const payload = {
+      ...createLinkPayload(),
+      url: `https://example.com/#invite=${'a'.repeat(1900)}`,
+    }
+    const response = await postJson('/api/link/create', payload)
+    expect(response.status).toBe(201)
+
+    const redirect = await fetch(`/${payload.slug}`, { redirect: 'manual' })
+    expect(redirect.headers.get('location')).toBe(payload.url)
+  })
+
   it('returns 409 when slug already exists', async () => {
     const payload = createLinkPayload()
     await postJson('/api/link/create', payload)
